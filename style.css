@@ -1,2095 +1,2109 @@
-/* =====================================================
-   RESET
-===================================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #f8f3ef;
-    color: #342528;
-    font-family: "Poppins", sans-serif;
-    overflow-x: hidden;
-}
-
-img {
-    max-width: 100%;
-}
-
-button {
-    font-family: inherit;
-}
-
-
-/* =====================================================
-   VARIABLES
-===================================================== */
-
-:root {
-    --cream: #f8f3ef;
-    --cream-dark: #eee3db;
-
-    --rose: #a65d70;
-    --rose-light: #d9a7b2;
-
-    --brown: #342528;
-    --brown-light: #735b5f;
-
-    --dark: #24191b;
-    --dark-light: #332527;
-
-    --white: #ffffff;
-
-    --serif: "Cormorant Garamond", serif;
-    --script: "Great Vibes", cursive;
-}
-
-
-/* =====================================================
-   LOADER
-===================================================== */
-
-.loader {
-    position: fixed;
-    inset: 0;
-
-    background: var(--cream);
-
-    z-index: 9999;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    transition:
-        opacity 0.8s ease,
-        visibility 0.8s ease;
-}
-
-.loader.hide {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loader-heart {
-    font-family: var(--script);
-
-    font-size: 90px;
-
-    color: var(--rose);
-
-    animation: loaderPulse 1.4s infinite;
-}
-
-.loader p {
-    font-family: var(--serif);
-
-    font-size: 20px;
-
-    color: var(--brown-light);
-
-    margin-top: 10px;
-}
-
-@keyframes loaderPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.18);
-    }
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-.navbar {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    padding: 22px 6%;
-
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-
-    z-index: 1000;
-
-    transition: all 0.4s ease;
-}
-
-.navbar.scrolled {
-    background: rgba(248, 243, 239, 0.96);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 5px 30px rgba(50, 30, 30, 0.08);
-}
-
-.nav-logo {
-    font-family: var(--serif);
-
-    font-size: 25px;
-
-    letter-spacing: 3px;
-
-    color: white;
-}
-
-.navbar.scrolled .nav-logo {
-    color: var(--brown);
-}
-
-.nav-logo span {
-    color: var(--rose);
-
-    font-family: var(--script);
-
-    font-size: 30px;
-}
-
-.navbar nav {
-    display: flex;
-
-    align-items: center;
-
-    gap: 35px;
-}
-
-.navbar nav a {
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 12px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    transition: 0.3s;
-}
-
-.navbar.scrolled nav a {
-    color: var(--brown);
-}
-
-.navbar nav a:hover {
-    color: var(--rose) !important;
-}
-
-.menu-btn {
-    display: none;
-
-    background: none;
-
-    border: none;
-
-    color: white;
-
-    font-size: 25px;
-
-    cursor: pointer;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero {
-    min-height: 100vh;
-
-    position: relative;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    color: white;
-
-    background:
-        url("birthday/birthday/Engagement/1.jpg")
-        center / cover no-repeat;
-
-    overflow: hidden;
-}
-
-.hero-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            rgba(30, 15, 20, 0.45),
-            rgba(30, 15, 20, 0.78)
-        );
-}
-
-.hero-content {
-    position: relative;
-
-    z-index: 2;
-
-    width: 90%;
-
-    max-width: 850px;
-
-    padding: 30px;
-}
-
-.eyebrow {
-    font-size: 10px;
-
-    letter-spacing: 5px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 18px;
-
-    opacity: 0.8;
-}
-
-.hero h1 {
-    font-family: var(--script);
-
-    font-size: clamp(80px, 13vw, 160px);
-
-    font-weight: normal;
-
-    line-height: 0.9;
-}
-
-.hero h2 {
-    font-family: var(--serif);
-
-    font-weight: 300;
-
-    font-size: clamp(35px, 5vw, 60px);
-
-    letter-spacing: 5px;
-
-    margin-top: 20px;
-
-    text-transform: uppercase;
-}
-
-.hero h2 span {
-    color: #e5a6b5;
-}
-
-.hero-line {
-    width: 70px;
-
-    height: 1px;
-
-    background: rgba(255, 255, 255, 0.6);
-
-    margin: 30px auto;
-}
-
-.hero-text {
-    max-width: 500px;
-
-    margin: auto;
-
-    font-size: 14px;
-
-    line-height: 2;
-
-    opacity: 0.9;
-}
-
-.begin-btn {
-    margin-top: 35px;
-
-    padding: 15px 30px;
-
-    background: rgba(255, 255, 255, 0.1);
-
-    border: 1px solid rgba(255, 255, 255, 0.6);
-
-    border-radius: 50px;
-
-    color: white;
-
-    cursor: pointer;
-
-    letter-spacing: 1px;
-
-    transition: 0.4s;
-}
-
-.begin-btn:hover {
-    background: white;
-
-    color: var(--brown);
-
-    transform: translateY(-3px);
-}
-
-.begin-btn span {
-    margin-left: 10px;
-}
-
-.scroll-text {
-    position: absolute;
-
-    bottom: 25px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    font-size: 8px;
-
-    letter-spacing: 4px;
-
-    opacity: 0.6;
-}
-
-
-/* =====================================================
-   INTRO
-===================================================== */
-
-.intro-section {
-    padding: 150px 10%;
-
-    position: relative;
-
-    text-align: center;
-
-    background: var(--cream);
-}
-
-.section-number {
-    position: absolute;
-
-    top: 70px;
-
-    left: 7%;
-
-    font-family: var(--serif);
-
-    font-size: 80px;
-
-    opacity: 0.08;
-}
-
-.intro-content {
-    max-width: 800px;
-
-    margin: auto;
-}
-
-.intro-content h2 {
-    font-family: var(--serif);
-
-    font-size: clamp(45px, 6vw, 80px);
-
-    font-weight: 400;
-
-    line-height: 1.05;
-
-    margin-bottom: 35px;
-}
-
-.intro-content h2 span {
-    font-family: var(--script);
-
-    color: var(--rose);
-
-    font-size: 1.2em;
-}
-
-.intro-content > p:not(.eyebrow) {
-    max-width: 600px;
-
-    margin: auto;
-
-    color: var(--brown-light);
-
-    line-height: 2;
-
-    font-size: 15px;
-}
-
-.little-heart {
-    margin-top: 40px;
-
-    font-family: var(--script);
-
-    font-size: 45px;
-
-    color: var(--rose);
-}
-
-
-/* =====================================================
-   SECTION HEADINGS
-===================================================== */
-
-.section-heading {
-    text-align: center;
-
-    margin-bottom: 100px;
-}
-
-.section-heading h2 {
-    font-family: var(--serif);
-
-    font-weight: 400;
-
-    font-size: clamp(55px, 7vw, 90px);
-
-    line-height: 0.9;
-
-    margin-bottom: 20px;
-}
-
-.section-heading > p:last-child {
-    color: var(--brown-light);
-
-    font-family: var(--serif);
-
-    font-size: 19px;
-}
-
-.section-heading.light {
-    color: white;
-}
-
-.section-heading.light > p:last-child {
-    color: #c7b8ba;
-}
-
-
-/* =====================================================
-   STORY TIMELINE
-===================================================== */
-
-.story-section {
-    padding: 140px 7%;
-
-    background: var(--cream-dark);
-}
-
-.timeline {
-    max-width: 1000px;
-
-    margin: auto;
-
-    position: relative;
-}
-
-.timeline::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-
-    left: 50%;
-
-    width: 1px;
-
-    background: #c8aeb0;
-}
-
-.timeline-item {
-    min-height: 250px;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 70px 1fr;
-
-    align-items: center;
-
-    position: relative;
-
-    margin-bottom: 40px;
-}
-
-.timeline-date {
-    grid-column: 1;
-
-    text-align: right;
-
-    padding-right: 45px;
-
-    display: flex;
-
-    flex-direction: column;
-}
-
-.timeline-date span {
-    font-family: var(--serif);
-
-    font-size: 20px;
-
-    letter-spacing: 3px;
-}
-
-.timeline-date strong {
-    font-family: var(--serif);
-
-    font-size: 70px;
-
-    font-weight: 400;
-
-    line-height: 0.8;
-
-    color: var(--rose);
-}
-
-.timeline-date small {
-    font-size: 10px;
-
-    letter-spacing: 3px;
-
-    margin-top: 10px;
-}
-
-.timeline-dot {
-    grid-column: 2;
-
-    grid-row: 1;
-
-    width: 42px;
-    height: 42px;
-
-    border-radius: 50%;
-
-    background: var(--cream);
-
-    border: 1px solid #c8aeb0;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    color: var(--rose);
-
-    font-size: 18px;
-
-    z-index: 2;
-
-    margin: auto;
-}
-
-.timeline-text {
-    grid-column: 3;
-
-    padding-left: 45px;
-
-    max-width: 420px;
-}
-
-.timeline-text h3 {
-    font-family: var(--serif);
-
-    font-size: 42px;
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    margin-bottom: 18px;
-}
-
-.timeline-text p:not(.eyebrow) {
-    color: var(--brown-light);
-
-    font-size: 14px;
-
-    line-height: 1.9;
-}
-
-.timeline-item.reverse .timeline-date {
-    grid-column: 3;
-
-    text-align: left;
-
-    padding-left: 45px;
-
-    padding-right: 0;
-}
-
-.timeline-item.reverse .timeline-text {
-    grid-column: 1;
-
-    grid-row: 1;
-
-    text-align: right;
-
-    padding-left: 0;
-
-    padding-right: 45px;
-
-    margin-left: auto;
-}
-
-.timeline-item.highlight .timeline-dot {
-    background: var(--rose);
-
-    color: white;
-
-    width: 55px;
-    height: 55px;
-
-    box-shadow:
-        0 0 0 10px rgba(166, 93, 112, 0.12);
-}
-
-.timeline-item.highlight .timeline-text h3 {
-    color: var(--rose);
-}
-
-
-/* =====================================================
-   MEMORIES SECTION
-===================================================== */
-
-.memories-section {
-    padding: 150px 6%;
-
-    background: var(--dark);
-}
-
-
-/* =====================================================
-   MEMORY BLOCK
-===================================================== */
-
-.memory-block {
-    width: 100%;
-
-    max-width: 1150px;
-
-    margin: 0 auto 150px;
-}
-
-.memory-heading {
-    display: flex;
-
-    align-items: center;
-
-    gap: 25px;
-
-    margin-bottom: 70px;
-
-    color: white;
-}
-
-.memory-heading > span {
-    font-family: var(--serif);
-
-    font-size: 70px;
-
-    color: #8e7477;
-
-    opacity: 0.5;
-}
-
-.memory-heading h3 {
-    font-family: var(--serif);
-
-    font-size: 60px;
-
-    font-weight: 400;
-
-    line-height: 0.9;
-}
-
-
-/* =====================================================
-   GENERAL PHOTO CARD
-===================================================== */
-
-.photo-card {
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 5px;
-
-    background: #302326;
-
-    cursor: pointer;
-
-    min-width: 0;
-}
-
-.photo-card img {
-    width: 100%;
-
-    height: 100%;
-
-    display: block;
-
-    object-fit: contain;
-
-    background: #302326;
-
-    transition:
-        transform 0.7s ease;
-}
-
-.photo-card:hover img {
-    transform: scale(1.035);
-}
-
-.photo-card::after {
-    content: "♡";
-
-    position: absolute;
-
-    bottom: 15px;
-    right: 18px;
-
-    color: white;
-
-    font-size: 20px;
-
-    opacity: 0;
-
-    transition: 0.4s;
-
-    text-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.photo-card:hover::after {
-    opacity: 1;
-}
-
-
-/* =====================================================
-   ENGAGEMENT
-===================================================== */
-
-.engagement-layout {
-    display: grid;
-
-    grid-template-columns: 1.35fr 1fr;
-
-    grid-template-rows:
-        330px
-        330px;
-
-    gap: 18px;
-}
-
-.engagement-layout .large {
-    grid-row: span 2;
-}
-
-
-/* =====================================================
-   PELLI KODUKU
-===================================================== */
-
-.two-layout {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 18px;
-
-    align-items: stretch;
-}
-
-.two-layout .photo-card {
-    min-height: 550px;
-}
-
-
-/* =====================================================
-   PELLI - 9 PHOTO LAYOUT
-===================================================== */
-
-.wedding-gallery {
-    width: 100%;
-
-    margin-bottom: 0;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(12, 1fr);
-
-    grid-template-rows:
-        280px
-        220px
-        220px;
-
-    gap: 18px;
-}
-
-
-/* ---------------------------------------------
-   PHOTO 1
-   Main hero image
---------------------------------------------- */
-
-.wedding-gallery .photo-card:nth-child(1) {
-    grid-column: span 7;
-
-    grid-row: span 2;
-}
-
-
-/* ---------------------------------------------
-   PHOTO 2
---------------------------------------------- */
-
-.wedding-gallery .photo-card:nth-child(2) {
-    grid-column: span 5;
-}
-
-
-/* ---------------------------------------------
-   PHOTO 3
---------------------------------------------- */
-
-.wedding-gallery .photo-card:nth-child(3) {
-    grid-column: span 5;
-}
-
-
-/* ---------------------------------------------
-   PHOTOS 4, 5, 6
---------------------------------------------- */
-
-.wedding-gallery .photo-card:nth-child(4),
-.wedding-gallery .photo-card:nth-child(5),
-.wedding-gallery .photo-card:nth-child(6) {
-    grid-column: span 4;
-}
-
-
-/* ---------------------------------------------
-   PHOTOS 7, 8, 9
---------------------------------------------- */
-
-.wedding-gallery .photo-card:nth-child(7),
-.wedding-gallery .photo-card:nth-child(8),
-.wedding-gallery .photo-card:nth-child(9) {
-    grid-column: span 4;
-}
-
-
-/* =====================================================
-   MUSICAL NIGHT
-===================================================== */
-
-.three-layout {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1.25fr 1fr;
-
-    gap: 18px;
-
-    align-items: stretch;
-}
-
-.three-layout .photo-card {
-    min-height: 450px;
-}
-
-.three-layout .featured {
-    min-height: 520px;
-}
-
-
-/* =====================================================
-   RECEPTION
-===================================================== */
-
-.single-memory {
-    width: 100%;
-
-    max-width: 900px;
-
-    margin: auto;
-}
-
-.single-memory .photo-card {
-    min-height: 600px;
-}
-
-
-/* =====================================================
-   TRIP
-===================================================== */
-
-.trip-gallery {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    grid-auto-rows:
-        230px;
-
-    gap: 18px;
-}
-
-.trip-gallery .trip-large {
-    grid-column: span 2;
-
-    grid-row: span 2;
-}
-
-
-/* =====================================================
-   ABOUT LOVE
-===================================================== */
-
-.about-love {
-    padding: 160px 8%;
-
-    background: var(--cream);
-
-    text-align: center;
-}
-
-.about-inner {
-    max-width: 850px;
-
-    margin: auto;
-}
-
-.about-inner h2 {
-    font-family: var(--serif);
-
-    font-weight: 400;
-
-    font-size: clamp(50px, 7vw, 90px);
-
-    line-height: 1;
-
-    margin-bottom: 55px;
-}
-
-.about-inner h2 span {
-    font-family: var(--script);
-
-    color: var(--rose);
-
-    font-size: 1.2em;
-}
-
-.about-text {
-    max-width: 650px;
-
-    margin: auto;
-}
-
-.about-text p {
-    font-family: var(--serif);
-
-    font-size: 22px;
-
-    line-height: 1.8;
-
-    margin-bottom: 30px;
-
-    color: var(--brown-light);
-}
-
-.about-heart {
-    font-family: var(--script);
-
-    color: var(--rose);
-
-    font-size: 60px;
-
-    margin-top: 30px;
-}
-
-
-/* =====================================================
-   FAMILY
-===================================================== */
-
-.family-section {
-    padding: 150px 8%;
-
-    background: #d8c3ba;
-
-    text-align: center;
-}
-
-.family-content {
-    max-width: 750px;
-
-    margin: auto;
-}
-
-.family-content h2 {
-    font-family: var(--serif);
-
-    font-size: clamp(55px, 7vw, 90px);
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    margin-bottom: 45px;
-}
-
-.family-content > p:not(.eyebrow) {
-    font-family: var(--serif);
-
-    font-size: 21px;
-
-    line-height: 1.8;
-
-    color: #624e50;
-
-    margin-bottom: 25px;
-}
-
-.family-quote {
-    margin-top: 60px;
-
-    padding-top: 35px;
-
-    border-top:
-        1px solid rgba(80, 50, 50, 0.2);
-
-    font-family: var(--script);
-
-    font-size: 40px;
-
-    color: var(--rose);
-}
-
-
-/* =====================================================
-   LOVE LETTER
-===================================================== */
-
-.letter-section {
-    padding: 150px 20px;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #f8e9e9,
-            #eadbd5
-        );
-}
-
-.letter-paper {
-    max-width: 850px;
-
-    margin: auto;
-
-    padding: 80px 90px;
-
-    background: #fffdfb;
-
-    box-shadow:
-        0 30px 80px rgba(70, 40, 40, 0.15);
-
-    position: relative;
-}
-
-.letter-paper::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 15px;
-
-    border:
-        1px solid rgba(166, 93, 112, 0.15);
-
-    pointer-events: none;
-}
-
-.letter-top {
-    text-align: center;
-
-    color: var(--rose);
-
-    font-family: var(--script);
-
-    font-size: 50px;
-
-    margin-bottom: 20px;
-}
-
-.letter-paper > .eyebrow {
-    text-align: center;
-
-    color: var(--brown-light);
-}
-
-.letter-paper h2 {
-    font-family: var(--script);
-
-    color: var(--rose);
-
-    font-size: 75px;
-
-    font-weight: normal;
-
-    margin: 30px 0;
-}
-
-.letter-body p {
-    font-family: var(--serif);
-
-    font-size: 22px;
-
-    line-height: 1.8;
-
-    color: #5c484b;
-
-    margin-bottom: 30px;
-}
-
-.letter-body .final-message {
-    text-align: center;
-
-    color: var(--rose);
-
-    font-size: 28px;
-
-    margin-top: 50px;
-}
-
-.signature {
-    text-align: right;
-
-    font-family: var(--script);
-
-    color: var(--rose);
-
-    font-size: 45px;
-
-    margin-top: 50px;
-}
-
-
-/* =====================================================
-   FUTURE SECTION
-===================================================== */
-
-.future-section {
-    min-height: 100vh;
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    color: white;
-
-    background:
-        url("birthday/birthday/trip/1.jpg")
-        center / cover no-repeat;
-}
-
-.future-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        rgba(25, 13, 17, 0.72);
-}
-
-.future-content {
-    position: relative;
-
-    z-index: 2;
-}
-
-.future-content h2 {
-    font-family: var(--serif);
-
-    font-weight: 300;
-
-    font-size: clamp(55px, 8vw, 105px);
-
-    line-height: 0.95;
-}
-
-.future-content h2 span {
-    font-family: var(--script);
-
-    color: #e5a6b5;
-}
-
-.future-heart {
-    font-size: 55px;
-
-    color: #e5a6b5;
-
-    margin-top: 45px;
-
-    animation:
-        loaderPulse 1.5s infinite;
-}
-
-
-/* =====================================================
-   FINAL SECTION
-===================================================== */
-
-.final-section {
-    min-height: 70vh;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    background: var(--cream);
-}
-
-.final-content h1 {
-    font-family: var(--script);
-
-    font-size: clamp(90px, 13vw, 160px);
-
-    font-weight: normal;
-
-    color: var(--rose);
-
-    line-height: 0.9;
-
-    margin-bottom: 25px;
-}
-
-.final-content > p:not(.eyebrow) {
-    font-family: var(--serif);
-
-    font-size: 25px;
-
-    color: var(--brown-light);
-}
-
-.final-heart {
-    font-family: var(--script);
-
-    font-size: 65px;
-
-    color: var(--rose);
-
-    margin-top: 30px;
-}
-
-
-/* =====================================================
-   FULL SCREEN IMAGE VIEWER
-===================================================== */
-
-.image-viewer {
-    position: fixed;
-
-    inset: 0;
-
-    background:
-        rgba(15, 8, 10, 0.97);
-
-    z-index: 5000;
-
-    display: none;
-
-    justify-content: center;
-    align-items: center;
-
-    padding: 50px;
-}
-
-.image-viewer.active {
-    display: flex;
-}
-
-.image-viewer img {
-    max-width: 88vw;
-
-    max-height: 90vh;
-
-    width: auto;
-    height: auto;
-
-    object-fit: contain;
-
-    border-radius: 3px;
-
-    box-shadow:
-        0 20px 80px rgba(0, 0, 0, 0.4);
-}
-
-.viewer-close {
-    position: absolute;
-
-    top: 20px;
-    right: 30px;
-
-    width: 50px;
-    height: 50px;
-
-    background: transparent;
-
-    border:
-        1px solid rgba(255, 255, 255, 0.5);
-
-    color: white;
-
-    border-radius: 50%;
-
-    font-size: 30px;
-
-    cursor: pointer;
-}
-
-.viewer-prev,
-.viewer-next {
-    position: absolute;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 55px;
-    height: 55px;
-
-    border-radius: 50%;
-
-    border:
-        1px solid rgba(255, 255, 255, 0.5);
-
-    background:
-        rgba(255, 255, 255, 0.08);
-
-    color: white;
-
-    font-size: 40px;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.viewer-prev {
-    left: 25px;
-}
-
-.viewer-next {
-    right: 25px;
-}
-
-.viewer-prev:hover,
-.viewer-next:hover,
-.viewer-close:hover {
-    background:
-        rgba(255, 255, 255, 0.2);
-}
-
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-
-.reveal {
-    opacity: 0;
-
-    transform: translateY(35px);
-
-    transition:
-        opacity 0.9s ease,
-        transform 0.9s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* =====================================================
-   FLOATING HEARTS
-===================================================== */
-
-.floating-heart {
-    position: fixed;
-
-    pointer-events: none;
-
-    z-index: 999;
-
-    color: #c17a8b;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 1000px) {
-
-    .memories-section {
-        padding-left: 4%;
-        padding-right: 4%;
-    }
-
-    .memory-block {
-        max-width: 950px;
-    }
-
-    .wedding-gallery {
-        grid-template-rows:
-            250px
-            200px
-            200px;
-    }
-
-    .trip-gallery {
-        grid-auto-rows: 200px;
-    }
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 800px) {
-
-    /* ---------------------------------------------
-       NAVIGATION
-    --------------------------------------------- */
-
-    .navbar {
-        padding: 18px 20px;
-    }
-
-    .navbar nav {
-        position: absolute;
-
-        top: 70px;
-
-        left: 20px;
-        right: 20px;
-
-        display: none;
-
-        flex-direction: column;
-
-        gap: 0;
-
-        background:
-            rgba(35, 22, 24, 0.97);
-
-        padding: 15px;
-
-        border-radius: 8px;
-    }
-
-    .navbar nav.active {
-        display: flex;
-    }
-
-    .navbar nav a {
-        padding: 15px;
-
-        color: white !important;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-
-    /* ---------------------------------------------
-       HERO
-    --------------------------------------------- */
-
-    .hero h1 {
-        font-size: 75px;
-    }
-
-    .hero h2 {
-        font-size: 35px;
-
-        letter-spacing: 3px;
-    }
-
-    .hero-text {
-        font-size: 13px;
-    }
-
-
-    /* ---------------------------------------------
-       INTRO
-    --------------------------------------------- */
-
-    .intro-section {
-        padding: 110px 25px;
-    }
-
-
-    /* ---------------------------------------------
-       TIMELINE
-    --------------------------------------------- */
-
-    .story-section {
-        padding: 100px 20px;
-    }
-
-    .timeline::before {
-        left: 20px;
-    }
-
-    .timeline-item,
-    .timeline-item.reverse {
-        display: block;
-
-        padding-left: 60px;
-
-        min-height: 0;
-
-        margin-bottom: 70px;
-    }
-
-    .timeline-date,
-    .timeline-item.reverse .timeline-date {
-        text-align: left;
-
-        padding: 0;
-
-        margin-bottom: 20px;
-    }
-
-    .timeline-date strong {
-        font-size: 55px;
-    }
-
-    .timeline-dot {
-        position: absolute;
-
-        left: 0;
-
-        top: 5px;
-
-        width: 40px;
-        height: 40px;
-    }
-
-    .timeline-text,
-    .timeline-item.reverse .timeline-text {
-        padding: 0;
-
-        text-align: left;
-
-        margin: 0;
-    }
-
-    .timeline-text h3 {
-        font-size: 38px;
-    }
-
-
-    /* ---------------------------------------------
-       MEMORIES
-    --------------------------------------------- */
-
-    .memories-section {
-        padding: 100px 20px;
-    }
-
-    .memory-block {
-        margin-bottom: 100px;
-    }
-
-    .memory-heading {
-        gap: 15px;
-
-        margin-bottom: 45px;
-    }
-
-    .memory-heading > span {
-        font-size: 50px;
-    }
-
-    .memory-heading h3 {
-        font-size: 45px;
-    }
-
-
-    /* ---------------------------------------------
-       ENGAGEMENT
-    --------------------------------------------- */
-
-    .engagement-layout {
-        display: grid;
-
-        grid-template-columns: 1fr;
-
-        grid-template-rows: auto;
-
-        gap: 15px;
-    }
-
-    .engagement-layout .large {
-        grid-row: auto;
-    }
-
-    .engagement-layout .photo-card {
-        min-height: 330px;
-    }
-
-
-    /* ---------------------------------------------
-       PELLI KODUKU
-    --------------------------------------------- */
-
-    .two-layout {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-    .two-layout .photo-card {
-        min-height: 400px;
-    }
-
-
-    /* ---------------------------------------------
-       PELLI - 9 PHOTOS
-    --------------------------------------------- */
-
-    .wedding-gallery {
-        display: grid;
-
-        grid-template-columns: 1fr;
-
-        grid-template-rows: none;
-
-        gap: 15px;
-    }
-
-    .wedding-gallery .photo-card:nth-child(n) {
-        grid-column: span 1;
-
-        grid-row: span 1;
-
-        min-height: 350px;
-    }
-
-
-    /* ---------------------------------------------
-       MUSICAL NIGHT
-    --------------------------------------------- */
-
-    .three-layout {
-        display: grid;
-
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-    .three-layout .photo-card,
-    .three-layout .featured {
-        min-height: 400px;
-    }
-
-
-    /* ---------------------------------------------
-       RECEPTION
-    --------------------------------------------- */
-
-    .single-memory .photo-card {
-        min-height: 400px;
-    }
-
-
-    /* ---------------------------------------------
-       TRIP
-    --------------------------------------------- */
-
-    .trip-gallery {
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-
-        grid-auto-rows: 250px;
-
-        gap: 15px;
-    }
-
-    .trip-gallery .photo-card {
-        min-height: 250px;
-    }
-
-    .trip-gallery .trip-large {
-        grid-column: span 2;
-
-        grid-row: span 1;
-    }
-
-
-    /* ---------------------------------------------
-       ABOUT
-    --------------------------------------------- */
-
-    .about-love {
-        padding: 110px 25px;
-    }
-
-    .about-text p {
-        font-size: 19px;
-    }
-
-
-    /* ---------------------------------------------
-       FAMILY
-    --------------------------------------------- */
-
-    .family-section {
-        padding: 110px 25px;
-    }
-
-    .family-quote {
-        font-size: 32px;
-    }
-
-
-    /* ---------------------------------------------
-       LETTER
-    --------------------------------------------- */
-
-    .letter-section {
-        padding: 80px 15px;
-    }
-
-    .letter-paper {
-        padding: 60px 30px;
-    }
-
-    .letter-paper h2 {
-        font-size: 60px;
-    }
-
-    .letter-body p {
-        font-size: 19px;
-    }
-
-    .signature {
-        font-size: 38px;
-    }
-
-
-    /* ---------------------------------------------
-       IMAGE VIEWER
-    --------------------------------------------- */
-
-    .image-viewer {
-        padding: 20px;
-    }
-
-    .image-viewer img {
-        max-width: 94vw;
-
-        max-height: 80vh;
-    }
-
-    .viewer-prev,
-    .viewer-next {
-        width: 42px;
-
-        height: 42px;
-
-        font-size: 30px;
-    }
-
-    .viewer-prev {
-        left: 10px;
-    }
-
-    .viewer-next {
-        right: 10px;
-    }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media (max-width: 450px) {
-
-    .hero h1 {
-        font-size: 65px;
-    }
-
-    .hero h2 {
-        font-size: 30px;
-    }
-
-    .memory-heading h3 {
-        font-size: 38px;
-    }
-
-    .wedding-gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .wedding-gallery .photo-card:nth-child(n) {
-        grid-column: span 1;
-
-        min-height: 320px;
-    }
-
-    .trip-gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .trip-gallery .trip-large {
-        grid-column: span 1;
-    }
-
-    .trip-gallery .photo-card {
-        min-height: 320px;
-    }
-
-    .final-content h1 {
-        font-size: 90px;
-    }
-
-}
-
-
-/* =====================================================
-   ACCESSIBILITY
-===================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        transition-duration: 0.01ms !important;
-    }
-
-}
-
-
-/* =====================================================
-   CHILDHOOD MEMORY
-   Keeps the 10-photo gallery and the message clearly
-   separated so the text never appears behind the photos.
-===================================================== */
-
-.childhood-block {
-    position: relative;
-    overflow: visible;
-}
-
-.childhood-gallery {
-    position: relative;
-    z-index: 1;
-
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 230px;
-    gap: 18px;
-
-    width: 100%;
-    margin-bottom: 0;
-}
-
-.childhood-gallery .photo-card {
-    min-height: 230px;
-    position: relative;
-    z-index: 1;
-}
-
-.childhood-gallery .photo-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.childhood-note {
-    position: relative;
-    z-index: 2;
-
-    display: block;
-    clear: both;
-
-    width: 100%;
-    margin-top: 65px;
-    padding: 40px 55px;
-
-    background: rgba(255, 255, 255, 0.045);
-    border-left: 2px solid var(--rose);
-
-    color: #d8c8ca;
-}
-
-.childhood-note::before {
-    content: "♡";
-    display: block;
-
-    font-family: var(--script);
-    font-size: 42px;
-    line-height: 1;
-    color: var(--rose);
-
-    margin-bottom: 18px;
-}
-
-.childhood-note p {
-    position: relative;
-    z-index: 3;
-
-    max-width: 850px;
-    margin: 0 auto 22px;
-
-    font-family: var(--serif);
-    font-size: 21px;
-    line-height: 1.8;
-    text-align: center;
-}
-
-.childhood-note p:last-child {
-    margin-bottom: 0;
-}
-
-
-/* =====================================================
-   CHILDHOOD - TABLET
-===================================================== */
-
-@media (max-width: 1000px) {
-
-    .childhood-gallery {
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 220px;
-    }
-
-    .childhood-gallery .photo-card {
-        min-height: 220px;
-    }
-
-}
-
-
-/* =====================================================
-   CHILDHOOD - MOBILE
-===================================================== */
-
-@media (max-width: 800px) {
-
-    .childhood-gallery {
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 230px;
-        gap: 15px;
-
-        margin-bottom: 0;
-    }
-
-    .childhood-gallery .photo-card {
-        min-height: 230px;
-    }
-
-    .childhood-note {
-        margin-top: 45px;
-        padding: 30px 22px;
-    }
-
-    .childhood-note::before {
-        font-size: 38px;
-        margin-bottom: 15px;
-    }
-
-    .childhood-note p {
-        font-size: 18px;
-        line-height: 1.75;
-    }
-
-}
-
-
-/* =====================================================
-   CHILDHOOD - SMALL PHONES
-===================================================== */
-
-@media (max-width: 450px) {
-
-    .childhood-gallery {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 320px;
-        gap: 15px;
-    }
-
-    .childhood-gallery .photo-card {
-        min-height: 320px;
-    }
-
-    .childhood-note {
-        margin-top: 40px;
-        padding: 28px 18px;
-    }
-
-    .childhood-note p {
-        font-size: 17px;
-        line-height: 1.7;
-    }
-
+/* ===================================================== 
+   RESET 
+===================================================== */ 
+ 
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+ 
+html { 
+    scroll-behavior: smooth; 
+} 
+ 
+body { 
+    background: #f8f3ef; 
+    color: #342528; 
+    font-family: "Poppins", sans-serif; 
+    overflow-x: hidden; 
+} 
+ 
+img { 
+    max-width: 100%; 
+} 
+ 
+button { 
+    font-family: inherit; 
+} 
+ 
+ 
+/* ===================================================== 
+   VARIABLES 
+===================================================== */ 
+ 
+:root { 
+    --cream: #f8f3ef; 
+    --cream-dark: #eee3db; 
+ 
+    --rose: #a65d70; 
+    --rose-light: #d9a7b2; 
+ 
+    --brown: #342528; 
+    --brown-light: #735b5f; 
+ 
+    --dark: #24191b; 
+    --dark-light: #332527; 
+ 
+    --white: #ffffff; 
+ 
+    --serif: "Cormorant Garamond", serif; 
+    --script: "Great Vibes", cursive; 
+} 
+ 
+ 
+/* ===================================================== 
+   LOADER 
+===================================================== */ 
+ 
+.loader { 
+    position: fixed; 
+    inset: 0; 
+ 
+    background: var(--cream); 
+ 
+    z-index: 9999; 
+ 
+    display: flex; 
+    flex-direction: column; 
+ 
+    justify-content: center; 
+    align-items: center; 
+ 
+    transition: 
+        opacity 0.8s ease, 
+        visibility 0.8s ease; 
+} 
+ 
+.loader.hide { 
+    opacity: 0; 
+    visibility: hidden; 
+} 
+ 
+.loader-heart { 
+    font-family: var(--script); 
+ 
+    font-size: 90px; 
+ 
+    color: var(--rose); 
+ 
+    animation: loaderPulse 1.4s infinite; 
+} 
+ 
+.loader p { 
+    font-family: var(--serif); 
+ 
+    font-size: 20px; 
+ 
+    color: var(--brown-light); 
+ 
+    margin-top: 10px; 
+} 
+ 
+@keyframes loaderPulse { 
+ 
+    0%, 
+    100% { 
+        transform: scale(1); 
+    } 
+ 
+    50% { 
+        transform: scale(1.18); 
+    } 
+} 
+ 
+ 
+/* ===================================================== 
+   NAVIGATION 
+===================================================== */ 
+ 
+.navbar { 
+    position: fixed; 
+ 
+    top: 0; 
+    left: 0; 
+ 
+    width: 100%; 
+ 
+    padding: 22px 6%; 
+ 
+    display: flex; 
+ 
+    justify-content: space-between; 
+    align-items: center; 
+ 
+    z-index: 1000; 
+ 
+    transition: all 0.4s ease; 
+} 
+ 
+.navbar.scrolled { 
+    background: rgba(248, 243, 239, 0.96); 
+ 
+    backdrop-filter: blur(15px); 
+ 
+    box-shadow: 
+        0 5px 30px rgba(50, 30, 30, 0.08); 
+} 
+ 
+.nav-logo { 
+    font-family: var(--serif); 
+ 
+    font-size: 25px; 
+ 
+    letter-spacing: 3px; 
+ 
+    color: white; 
+} 
+ 
+.navbar.scrolled .nav-logo { 
+    color: var(--brown); 
+} 
+ 
+.nav-logo span { 
+    color: var(--rose); 
+ 
+    font-family: var(--script); 
+ 
+    font-size: 30px; 
+} 
+ 
+.navbar nav { 
+    display: flex; 
+ 
+    align-items: center; 
+ 
+    gap: 35px; 
+} 
+ 
+.navbar nav a { 
+    color: white; 
+ 
+    text-decoration: none; 
+ 
+    font-size: 12px; 
+ 
+    letter-spacing: 2px; 
+ 
+    text-transform: uppercase; 
+ 
+    transition: 0.3s; 
+} 
+ 
+.navbar.scrolled nav a { 
+    color: var(--brown); 
+} 
+ 
+.navbar nav a:hover { 
+    color: var(--rose) !important; 
+} 
+ 
+.menu-btn { 
+    display: none; 
+ 
+    background: none; 
+ 
+    border: none; 
+ 
+    color: white; 
+ 
+    font-size: 25px; 
+ 
+    cursor: pointer; 
+} 
+ 
+ 
+/* ===================================================== 
+   HERO 
+===================================================== */ 
+ 
+.hero { 
+    min-height: 100vh; 
+ 
+    position: relative; 
+ 
+    display: flex; 
+ 
+    justify-content: center; 
+    align-items: center; 
+ 
+    text-align: center; 
+ 
+    color: white; 
+ 
+    background: 
+        url("birthday/birthday/Engagement/1.jpg") 
+        center / cover no-repeat; 
+ 
+    overflow: hidden; 
+} 
+ 
+.hero-overlay { 
+    position: absolute; 
+ 
+    inset: 0; 
+ 
+    background: 
+        linear-gradient( 
+            rgba(30, 15, 20, 0.45), 
+            rgba(30, 15, 20, 0.78) 
+        ); 
+} 
+ 
+.hero-content { 
+    position: relative; 
+ 
+    z-index: 2; 
+ 
+    width: 90%; 
+ 
+    max-width: 850px; 
+ 
+    padding: 30px; 
+} 
+ 
+.eyebrow { 
+    font-size: 10px; 
+ 
+    letter-spacing: 5px; 
+ 
+    text-transform: uppercase; 
+ 
+    margin-bottom: 18px; 
+ 
+    opacity: 0.8; 
+} 
+ 
+.hero h1 { 
+    font-family: var(--script); 
+ 
+    font-size: clamp(80px, 13vw, 160px); 
+ 
+    font-weight: normal; 
+ 
+    line-height: 0.9; 
+} 
+ 
+.hero h2 { 
+    font-family: var(--serif); 
+ 
+    font-weight: 300; 
+ 
+    font-size: clamp(35px, 5vw, 60px); 
+ 
+    letter-spacing: 5px; 
+ 
+    margin-top: 20px; 
+ 
+    text-transform: uppercase; 
+} 
+ 
+.hero h2 span { 
+    color: #e5a6b5; 
+} 
+ 
+.hero-line { 
+    width: 70px; 
+ 
+    height: 1px; 
+ 
+    background: rgba(255, 255, 255, 0.6); 
+ 
+    margin: 30px auto; 
+} 
+ 
+.hero-text { 
+    max-width: 500px; 
+ 
+    margin: auto; 
+ 
+    font-size: 14px; 
+ 
+    line-height: 2; 
+ 
+    opacity: 0.9; 
+} 
+ 
+.begin-btn { 
+    margin-top: 35px; 
+ 
+    padding: 15px 30px; 
+ 
+    background: rgba(255, 255, 255, 0.1); 
+ 
+    border: 1px solid rgba(255, 255, 255, 0.6); 
+ 
+    border-radius: 50px; 
+ 
+    color: white; 
+ 
+    cursor: pointer; 
+ 
+    letter-spacing: 1px; 
+ 
+    transition: 0.4s; 
+} 
+ 
+.begin-btn:hover { 
+    background: white; 
+ 
+    color: var(--brown); 
+ 
+    transform: translateY(-3px); 
+} 
+ 
+.begin-btn span { 
+    margin-left: 10px; 
+} 
+ 
+.scroll-text { 
+    position: absolute; 
+ 
+    bottom: 25px; 
+ 
+    left: 50%; 
+ 
+    transform: translateX(-50%); 
+ 
+    font-size: 8px; 
+ 
+    letter-spacing: 4px; 
+ 
+    opacity: 0.6; 
+} 
+ 
+ 
+/* ===================================================== 
+   INTRO 
+===================================================== */ 
+ 
+.intro-section { 
+    padding: 150px 10%; 
+ 
+    position: relative; 
+ 
+    text-align: center; 
+ 
+    background: var(--cream); 
+} 
+ 
+.section-number { 
+    position: absolute; 
+ 
+    top: 70px; 
+ 
+    left: 7%; 
+ 
+    font-family: var(--serif); 
+ 
+    font-size: 80px; 
+ 
+    opacity: 0.08; 
+} 
+ 
+.intro-content { 
+    max-width: 800px; 
+ 
+    margin: auto; 
+} 
+ 
+.intro-content h2 { 
+    font-family: var(--serif); 
+ 
+    font-size: clamp(45px, 6vw, 80px); 
+ 
+    font-weight: 400; 
+ 
+    line-height: 1.05; 
+ 
+    margin-bottom: 35px; 
+} 
+ 
+.intro-content h2 span { 
+    font-family: var(--script); 
+ 
+    color: var(--rose); 
+ 
+    font-size: 1.2em; 
+} 
+ 
+.intro-content > p:not(.eyebrow) { 
+    max-width: 600px; 
+ 
+    margin: auto; 
+ 
+    color: var(--brown-light); 
+ 
+    line-height: 2; 
+ 
+    font-size: 15px; 
+} 
+ 
+.little-heart { 
+    margin-top: 40px; 
+ 
+    font-family: var(--script); 
+ 
+    font-size: 45px; 
+ 
+    color: var(--rose); 
+} 
+ 
+ 
+/* ===================================================== 
+   SECTION HEADINGS 
+===================================================== */ 
+ 
+.section-heading { 
+    text-align: center; 
+ 
+    margin-bottom: 100px; 
+} 
+ 
+.section-heading h2 { 
+    font-family: var(--serif); 
+ 
+    font-weight: 400; 
+ 
+    font-size: clamp(55px, 7vw, 90px); 
+ 
+    line-height: 0.9; 
+ 
+    margin-bottom: 20px; 
+} 
+ 
+.section-heading > p:last-child { 
+    color: var(--brown-light); 
+ 
+    font-family: var(--serif); 
+ 
+    font-size: 19px; 
+} 
+ 
+.section-heading.light { 
+    color: white; 
+} 
+ 
+.section-heading.light > p:last-child { 
+    color: #c7b8ba; 
+} 
+ 
+ 
+/* ===================================================== 
+   STORY TIMELINE 
+===================================================== */ 
+ 
+.story-section { 
+    padding: 140px 7%; 
+ 
+    background: var(--cream-dark); 
+} 
+ 
+.timeline { 
+    max-width: 1000px; 
+ 
+    margin: auto; 
+ 
+    position: relative; 
+} 
+ 
+.timeline::before { 
+    content: ""; 
+ 
+    position: absolute; 
+ 
+    top: 0; 
+    bottom: 0; 
+ 
+    left: 50%; 
+ 
+    width: 1px; 
+ 
+    background: #c8aeb0; 
+} 
+ 
+.timeline-item { 
+    min-height: 250px; 
+ 
+    display: grid; 
+ 
+    grid-template-columns: 
+        1fr 70px 1fr; 
+ 
+    align-items: center; 
+ 
+    position: relative; 
+ 
+    margin-bottom: 40px; 
+} 
+ 
+.timeline-date { 
+    grid-column: 1; 
+ 
+    text-align: right; 
+ 
+    padding-right: 45px; 
+ 
+    display: flex; 
+ 
+    flex-direction: column; 
+} 
+ 
+.timeline-date span { 
+    font-family: var(--serif); 
+ 
+    font-size: 20px; 
+ 
+    letter-spacing: 3px; 
+} 
+ 
+.timeline-date strong { 
+    font-family: var(--serif); 
+ 
+    font-size: 70px; 
+ 
+    font-weight: 400; 
+ 
+    line-height: 0.8; 
+ 
+    color: var(--rose); 
+} 
+ 
+.timeline-date small { 
+    font-size: 10px; 
+ 
+    letter-spacing: 3px; 
+ 
+    margin-top: 10px; 
+} 
+ 
+.timeline-dot { 
+    grid-column: 2; 
+ 
+    grid-row: 1; 
+ 
+    width: 42px; 
+    height: 42px; 
+ 
+    border-radius: 50%; 
+ 
+    background: var(--cream); 
+ 
+    border: 1px solid #c8aeb0; 
+ 
+    display: flex; 
+ 
+    justify-content: center; 
+    align-items: center; 
+ 
+    color: var(--rose); 
+ 
+    font-size: 18px; 
+ 
+    z-index: 2; 
+ 
+    margin: auto; 
+} 
+ 
+.timeline-text { 
+    grid-column: 3; 
+ 
+    padding-left: 45px; 
+ 
+    max-width: 420px; 
+} 
+ 
+.timeline-text h3 { 
+    font-family: var(--serif); 
+ 
+    font-size: 42px; 
+ 
+    font-weight: 400; 
+ 
+    line-height: 1; 
+ 
+    margin-bottom: 18px; 
+} 
+ 
+.timeline-text p:not(.eyebrow) { 
+    color: var(--brown-light); 
+ 
+    font-size: 14px; 
+ 
+    line-height: 1.9; 
+} 
+ 
+.timeline-item.reverse .timeline-date { 
+    grid-column: 3; 
+ 
+    text-align: left; 
+ 
+    padding-left: 45px; 
+ 
+    padding-right: 0; 
+} 
+ 
+.timeline-item.reverse .timeline-text { 
+    grid-column: 1; 
+ 
+    grid-row: 1; 
+ 
+    text-align: right; 
+ 
+    padding-left: 0; 
+ 
+    padding-right: 45px; 
+ 
+    margin-left: auto; 
+} 
+ 
+.timeline-item.highlight .timeline-dot { 
+    background: var(--rose); 
+ 
+    color: white; 
+ 
+    width: 55px; 
+    height: 55px; 
+ 
+    box-shadow: 
+        0 0 0 10px rgba(166, 93, 112, 0.12); 
+} 
+ 
+.timeline-item.highlight .timeline-text h3 { 
+    color: var(--rose); 
+} 
+ 
+ 
+/* ===================================================== 
+   MEMORIES SECTION 
+===================================================== */ 
+ 
+.memories-section { 
+    padding: 150px 6%; 
+ 
+    background: var(--dark); 
+} 
+ 
+ 
+/* ===================================================== 
+   MEMORY BLOCK 
+===================================================== */ 
+ 
+.memory-block { 
+    width: 100%; 
+ 
+    max-width: 1150px; 
+ 
+    margin: 0 auto 150px; 
+} 
+ 
+.memory-heading { 
+    display: flex; 
+ 
+    align-items: center; 
+ 
+    gap: 25px; 
+ 
+    margin-bottom: 70px; 
+ 
+    color: white; 
+} 
+ 
+.memory-heading > span { 
+    font-family: var(--serif); 
+ 
+    font-size: 70px; 
+ 
+    color: #8e7477; 
+ 
+    opacity: 0.5; 
+} 
+ 
+.memory-heading h3 { 
+    font-family: var(--serif); 
+ 
+    font-size: 60px; 
+ 
+    font-weight: 400; 
+ 
+    line-height: 0.9; 
+} 
+ 
+ 
+/* ===================================================== 
+   GENERAL PHOTO CARD 
+===================================================== */ 
+ 
+.photo-card { 
+    position: relative; 
+ 
+    overflow: hidden; 
+ 
+    border-radius: 5px; 
+ 
+    background: #302326; 
+ 
+    cursor: pointer; 
+ 
+    min-width: 0; 
+} 
+ 
+.photo-card img { 
+    width: 100%; 
+ 
+    height: 100%; 
+ 
+    display: block; 
+ 
+    object-fit: contain; 
+ 
+    background: #302326; 
+ 
+    transition: 
+        transform 0.7s ease; 
+} 
+ 
+.photo-card:hover img { 
+    transform: scale(1.035); 
+} 
+ 
+.photo-card::after { 
+    content: "♡"; 
+ 
+    position: absolute; 
+ 
+    bottom: 15px; 
+    right: 18px; 
+ 
+    color: white; 
+ 
+    font-size: 20px; 
+ 
+    opacity: 0; 
+ 
+    transition: 0.4s; 
+ 
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.5); 
+} 
+ 
+.photo-card:hover::after { 
+    opacity: 1; 
+} 
+ 
+ 
+/* ===================================================== 
+   ENGAGEMENT 
+===================================================== */ 
+ 
+.engagement-layout { 
+    display: grid; 
+ 
+    grid-template-columns: 1.35fr 1fr; 
+ 
+    grid-template-rows: 
+        330px 
+        330px; 
+ 
+    gap: 18px; 
+} 
+ 
+.engagement-layout .large { 
+    grid-row: span 2; 
+} 
+ 
+ 
+/* ===================================================== 
+   PELLI KODUKU 
+===================================================== */ 
+ 
+.two-layout { 
+    display: grid; 
+ 
+    grid-template-columns: 1fr 1fr; 
+ 
+    gap: 18px; 
+ 
+    align-items: stretch; 
+} 
+ 
+.two-layout .photo-card { 
+    min-height: 550px; 
+} 
+ 
+ 
+/* ===================================================== 
+   PELLI - 9 PHOTO LAYOUT 
+===================================================== */ 
+ 
+.wedding-gallery { 
+    width: 100%; 
+ 
+    margin-bottom: 0; 
+ 
+    display: grid; 
+ 
+    grid-template-columns: 
+        repeat(12, 1fr); 
+ 
+    grid-template-rows: 
+        280px 
+        220px 
+        220px; 
+ 
+    gap: 18px; 
+} 
+ 
+ 
+/* --------------------------------------------- 
+   PHOTO 1 
+   Main hero image 
+--------------------------------------------- */ 
+ 
+.wedding-gallery .photo-card:nth-child(1) { 
+    grid-column: span 7; 
+ 
+    grid-row: span 2; 
+} 
+ 
+ 
+/* --------------------------------------------- 
+   PHOTO 2 
+--------------------------------------------- */ 
+ 
+.wedding-gallery .photo-card:nth-child(2) { 
+    grid-column: span 5; 
+} 
+ 
+ 
+/* --------------------------------------------- 
+   PHOTO 3 
+--------------------------------------------- */ 
+ 
+.wedding-gallery .photo-card:nth-child(3) { 
+    grid-column: span 5; 
+} 
+ 
+ 
+/* --------------------------------------------- 
+   PHOTOS 4, 5, 6 
+--------------------------------------------- */ 
+ 
+.wedding-gallery .photo-card:nth-child(4), 
+.wedding-gallery .photo-card:nth-child(5), 
+.wedding-gallery .photo-card:nth-child(6) { 
+    grid-column: span 4; 
+} 
+ 
+ 
+/* --------------------------------------------- 
+   PHOTOS 7, 8, 9 
+--------------------------------------------- */ 
+ 
+.wedding-gallery .photo-card:nth-child(7), 
+.wedding-gallery .photo-card:nth-child(8), 
+.wedding-gallery .photo-card:nth-child(9) { 
+    grid-column: span 4; 
+} 
+ 
+ 
+/* ===================================================== 
+   MUSICAL NIGHT 
+===================================================== */ 
+ 
+.three-layout { 
+    display: grid; 
+ 
+    grid-template-columns: 
+        1fr 1.25fr 1fr; 
+ 
+    gap: 18px; 
+ 
+    align-items: stretch; 
+} 
+ 
+.three-layout .photo-card { 
+    min-height: 450px; 
+} 
+ 
+.three-layout .featured { 
+    min-height: 520px; 
+} 
+ 
+ 
+/* ===================================================== 
+   RECEPTION 
+===================================================== */ 
+ 
+.single-memory { 
+    width: 100%; 
+ 
+    max-width: 900px; 
+ 
+    margin: auto; 
+} 
+ 
+.single-memory .photo-card { 
+    min-height: 600px; 
+} 
+ 
+ 
+/* ===================================================== 
+   TRIP 
+===================================================== */ 
+ 
+.trip-gallery { 
+    display: grid; 
+ 
+    grid-template-columns: 
+        repeat(4, 1fr); 
+ 
+    grid-auto-rows: 
+        230px; 
+ 
+    gap: 18px; 
+} 
+ 
+.trip-gallery .trip-large { 
+    grid-column: span 2; 
+ 
+    grid-row: span 2; 
+} 
+ 
+ 
+/* ===================================================== 
+   ABOUT LOVE 
+===================================================== */ 
+ 
+.about-love { 
+    padding: 160px 8%; 
+ 
+    background: var(--cream); 
+ 
+    text-align: center; 
+} 
+ 
+.about-inner { 
+    max-width: 850px; 
+ 
+    margin: auto; 
+} 
+ 
+.about-inner h2 { 
+    font-family: var(--serif); 
+ 
+    font-weight: 400; 
+ 
+    font-size: clamp(50px, 7vw, 90px); 
+ 
+    line-height: 1; 
+ 
+    margin-bottom: 55px; 
+} 
+ 
+.about-inner h2 span { 
+    font-family: var(--script); 
+ 
+    color: var(--rose); 
+ 
+    font-size: 1.2em; 
+} 
+ 
+.about-text { 
+    max-width: 650px; 
+ 
+    margin: auto; 
+} 
+ 
+.about-text p { 
+    font-family: var(--serif); 
+ 
+    font-size: 22px; 
+ 
+    line-height: 1.8; 
+ 
+    margin-bottom: 30px; 
+ 
+    color: var(--brown-light); 
+} 
+ 
+.about-heart { 
+    font-family: var(--script); 
+ 
+    color: var(--rose); 
+ 
+    font-size: 60px; 
+ 
+    margin-top: 30px; 
+} 
+ 
+ 
+/* ===================================================== 
+   FAMILY 
+===================================================== */ 
+ 
+.family-section { 
+    padding: 150px 8%; 
+ 
+    background: #d8c3ba; 
+ 
+    text-align: center; 
+} 
+ 
+.family-content { 
+    max-width: 750px; 
+ 
+    margin: auto; 
+} 
+ 
+.family-content h2 { 
+    font-family: var(--serif); 
+ 
+    font-size: clamp(55px, 7vw, 90px); 
+ 
+    font-weight: 400; 
+ 
+    line-height: 1; 
+ 
+    margin-bottom: 45px; 
+} 
+ 
+.family-content > p:not(.eyebrow) { 
+    font-family: var(--serif); 
+ 
+    font-size: 21px; 
+ 
+    line-height: 1.8; 
+ 
+    color: #624e50; 
+ 
+    margin-bottom: 25px; 
+} 
+ 
+.family-quote { 
+    margin-top: 60px; 
+ 
+    padding-top: 35px; 
+ 
+    border-top: 
+        1px solid rgba(80, 50, 50, 0.2); 
+ 
+    font-family: var(--script); 
+ 
+    font-size: 40px; 
+ 
+    color: var(--rose); 
+} 
+ 
+ 
+/* ===================================================== 
+   LOVE LETTER 
+===================================================== */ 
+ 
+.letter-section { 
+    padding: 150px 20px; 
+ 
+    background: 
+        radial-gradient( 
+            circle at top, 
+            #f8e9e9, 
+            #eadbd5 
+        ); 
+} 
+ 
+.letter-paper { 
+    max-width: 850px; 
+ 
+    margin: auto; 
+ 
+    padding: 80px 90px; 
+ 
+    background: #fffdfb; 
+ 
+    box-shadow: 
+        0 30px 80px rgba(70, 40, 40, 0.15); 
+ 
+    position: relative; 
+} 
+ 
+.letter-paper::before { 
+    content: ""; 
+ 
+    position: absolute; 
+ 
+    inset: 15px; 
+ 
+    border: 
+        1px solid rgba(166, 93, 112, 0.15); 
+ 
+    pointer-events: none; 
+} 
+ 
+.letter-top { 
+    text-align: center; 
+ 
+    color: var(--rose); 
+ 
+    font-family: var(--script); 
+ 
+    font-size: 50px; 
+ 
+    margin-bottom: 20px; 
+} 
+ 
+.letter-paper > .eyebrow { 
+    text-align: center; 
+ 
+    color: var(--brown-light); 
+} 
+ 
+.letter-paper h2 { 
+    font-family: var(--script); 
+ 
+    color: var(--rose); 
+ 
+    font-size: 75px; 
+ 
+    font-weight: normal; 
+ 
+    margin: 30px 0; 
+} 
+ 
+.letter-body p { 
+    font-family: var(--serif); 
+ 
+    font-size: 22px; 
+ 
+    line-height: 1.8; 
+ 
+    color: #5c484b; 
+ 
+    margin-bottom: 30px; 
+} 
+ 
+.letter-body .final-message { 
+    text-align: center; 
+ 
+    color: var(--rose); 
+ 
+    font-size: 28px; 
+ 
+    margin-top: 50px; 
+} 
+ 
+.signature { 
+    text-align: right; 
+ 
+    font-family: var(--script); 
+ 
+    color: var(--rose); 
+ 
+    font-size: 45px; 
+ 
+    margin-top: 50px; 
+} 
+ 
+ 
+/* ===================================================== 
+   FUTURE SECTION 
+===================================================== */ 
+ 
+.future-section { 
+    min-height: 100vh; 
+ 
+    position: relative; 
+ 
+    display: flex; 
+ 
+    align-items: center; 
+    justify-content: center; 
+ 
+    text-align: center; 
+ 
+    color: white; 
+ 
+    background: 
+        url("birthday/birthday/trip/1.jpg") 
+        center / cover no-repeat; 
+} 
+ 
+.future-overlay { 
+    position: absolute; 
+ 
+    inset: 0; 
+ 
+    background: 
+        rgba(25, 13, 17, 0.72); 
+} 
+ 
+.future-content { 
+    position: relative; 
+ 
+    z-index: 2; 
+} 
+ 
+.future-content h2 { 
+    font-family: var(--serif); 
+ 
+    font-weight: 300; 
+ 
+    font-size: clamp(55px, 8vw, 105px); 
+ 
+    line-height: 0.95; 
+} 
+ 
+.future-content h2 span { 
+    font-family: var(--script); 
+ 
+    color: #e5a6b5; 
+} 
+ 
+.future-heart { 
+    font-size: 55px; 
+ 
+    color: #e5a6b5; 
+ 
+    margin-top: 45px; 
+ 
+    animation: 
+        loaderPulse 1.5s infinite; 
+} 
+ 
+ 
+/* ===================================================== 
+   FINAL SECTION 
+===================================================== */ 
+ 
+.final-section { 
+    min-height: 70vh; 
+ 
+    display: flex; 
+ 
+    align-items: center; 
+    justify-content: center; 
+ 
+    text-align: center; 
+ 
+    background: var(--cream); 
+} 
+ 
+.final-content h1 { 
+    font-family: var(--script); 
+ 
+    font-size: clamp(90px, 13vw, 160px); 
+ 
+    font-weight: normal; 
+ 
+    color: var(--rose); 
+ 
+    line-height: 0.9; 
+ 
+    margin-bottom: 25px; 
+} 
+ 
+.final-content > p:not(.eyebrow) { 
+    font-family: var(--serif); 
+ 
+    font-size: 25px; 
+ 
+    color: var(--brown-light); 
+} 
+ 
+.final-heart { 
+    font-family: var(--script); 
+ 
+    font-size: 65px; 
+ 
+    color: var(--rose); 
+ 
+    margin-top: 30px; 
+} 
+ 
+ 
+/* ===================================================== 
+   FULL SCREEN IMAGE VIEWER 
+===================================================== */ 
+ 
+.image-viewer { 
+    position: fixed; 
+ 
+    inset: 0; 
+ 
+    background: 
+        rgba(15, 8, 10, 0.97); 
+ 
+    z-index: 5000; 
+ 
+    display: none; 
+ 
+    justify-content: center; 
+    align-items: center; 
+ 
+    padding: 50px; 
+} 
+ 
+.image-viewer.active { 
+    display: flex; 
+} 
+ 
+.image-viewer img { 
+    max-width: 88vw; 
+ 
+    max-height: 90vh; 
+ 
+    width: auto; 
+    height: auto; 
+ 
+    object-fit: contain; 
+ 
+    border-radius: 3px; 
+ 
+    box-shadow: 
+        0 20px 80px rgba(0, 0, 0, 0.4); 
+} 
+ 
+.viewer-close { 
+    position: absolute; 
+ 
+    top: 20px; 
+    right: 30px; 
+ 
+    width: 50px; 
+    height: 50px; 
+ 
+    background: transparent; 
+ 
+    border: 
+        1px solid rgba(255, 255, 255, 0.5); 
+ 
+    color: white; 
+ 
+    border-radius: 50%; 
+ 
+    font-size: 30px; 
+ 
+    cursor: pointer; 
+} 
+ 
+.viewer-prev, 
+.viewer-next { 
+    position: absolute; 
+ 
+    top: 50%; 
+ 
+    transform: translateY(-50%); 
+ 
+    width: 55px; 
+    height: 55px; 
+ 
+    border-radius: 50%; 
+ 
+    border: 
+        1px solid rgba(255, 255, 255, 0.5); 
+ 
+    background: 
+        rgba(255, 255, 255, 0.08); 
+ 
+    color: white; 
+ 
+    font-size: 40px; 
+ 
+    cursor: pointer; 
+ 
+    transition: 0.3s; 
+} 
+ 
+.viewer-prev { 
+    left: 25px; 
+} 
+ 
+.viewer-next { 
+    right: 25px; 
+} 
+ 
+.viewer-prev:hover, 
+.viewer-next:hover, 
+.viewer-close:hover { 
+    background: 
+        rgba(255, 255, 255, 0.2); 
+} 
+ 
+ 
+/* ===================================================== 
+   SCROLL REVEAL 
+===================================================== */ 
+ 
+.reveal { 
+    opacity: 0; 
+ 
+    transform: translateY(35px); 
+ 
+    transition: 
+        opacity 0.9s ease, 
+        transform 0.9s ease; 
+} 
+ 
+.reveal.visible { 
+    opacity: 1; 
+ 
+    transform: translateY(0); 
+} 
+ 
+ 
+/* ===================================================== 
+   FLOATING HEARTS 
+===================================================== */ 
+ 
+.floating-heart { 
+    position: fixed; 
+ 
+    pointer-events: none; 
+ 
+    z-index: 999; 
+ 
+    color: #c17a8b; 
+} 
+ 
+ 
+/* ===================================================== 
+   TABLET 
+===================================================== */ 
+ 
+@media (max-width: 1000px) { 
+ 
+    .memories-section { 
+        padding-left: 4%; 
+        padding-right: 4%; 
+    } 
+ 
+    .memory-block { 
+        max-width: 950px; 
+    } 
+ 
+    .wedding-gallery { 
+        grid-template-rows: 
+            250px 
+            200px 
+            200px; 
+    } 
+ 
+    .trip-gallery { 
+        grid-auto-rows: 200px; 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   MOBILE 
+===================================================== */ 
+ 
+@media (max-width: 800px) { 
+ 
+    /* --------------------------------------------- 
+       NAVIGATION 
+    --------------------------------------------- */ 
+ 
+    .navbar { 
+        padding: 18px 20px; 
+    } 
+ 
+    .navbar nav { 
+        position: absolute; 
+ 
+        top: 70px; 
+ 
+        left: 20px; 
+        right: 20px; 
+ 
+        display: none; 
+ 
+        flex-direction: column; 
+ 
+        gap: 0; 
+ 
+        background: 
+            rgba(35, 22, 24, 0.97); 
+ 
+        padding: 15px; 
+ 
+        border-radius: 8px; 
+    } 
+ 
+    .navbar nav.active { 
+        display: flex; 
+    } 
+ 
+    .navbar nav a { 
+        padding: 15px; 
+ 
+        color: white !important; 
+    } 
+ 
+    .menu-btn { 
+        display: block; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       HERO 
+    --------------------------------------------- */ 
+ 
+    .hero h1 { 
+        font-size: 75px; 
+    } 
+ 
+    .hero h2 { 
+        font-size: 35px; 
+ 
+        letter-spacing: 3px; 
+    } 
+ 
+    .hero-text { 
+        font-size: 13px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       INTRO 
+    --------------------------------------------- */ 
+ 
+    .intro-section { 
+        padding: 110px 25px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       TIMELINE 
+    --------------------------------------------- */ 
+ 
+    .story-section { 
+        padding: 100px 20px; 
+    } 
+ 
+    .timeline::before { 
+        left: 20px; 
+    } 
+ 
+    .timeline-item, 
+    .timeline-item.reverse { 
+        display: block; 
+ 
+        padding-left: 60px; 
+ 
+        min-height: 0; 
+ 
+        margin-bottom: 70px; 
+    } 
+ 
+    .timeline-date, 
+    .timeline-item.reverse .timeline-date { 
+        text-align: left; 
+ 
+        padding: 0; 
+ 
+        margin-bottom: 20px; 
+    } 
+ 
+    .timeline-date strong { 
+        font-size: 55px; 
+    } 
+ 
+    .timeline-dot { 
+        position: absolute; 
+ 
+        left: 0; 
+ 
+        top: 5px; 
+ 
+        width: 40px; 
+        height: 40px; 
+    } 
+ 
+    .timeline-text, 
+    .timeline-item.reverse .timeline-text { 
+        padding: 0; 
+ 
+        text-align: left; 
+ 
+        margin: 0; 
+    } 
+ 
+    .timeline-text h3 { 
+        font-size: 38px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       MEMORIES 
+    --------------------------------------------- */ 
+ 
+    .memories-section { 
+        padding: 100px 20px; 
+    } 
+ 
+    .memory-block { 
+        margin-bottom: 100px; 
+    } 
+ 
+    .memory-heading { 
+        gap: 15px; 
+ 
+        margin-bottom: 45px; 
+    } 
+ 
+    .memory-heading > span { 
+        font-size: 50px; 
+    } 
+ 
+    .memory-heading h3 { 
+        font-size: 45px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       ENGAGEMENT 
+    --------------------------------------------- */ 
+ 
+    .engagement-layout { 
+        display: grid; 
+ 
+        grid-template-columns: 1fr; 
+ 
+        grid-template-rows: auto; 
+ 
+        gap: 15px; 
+    } 
+ 
+    .engagement-layout .large { 
+        grid-row: auto; 
+    } 
+ 
+    .engagement-layout .photo-card { 
+        min-height: 330px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       PELLI KODUKU 
+    --------------------------------------------- */ 
+ 
+    .two-layout { 
+        grid-template-columns: 1fr; 
+ 
+        gap: 15px; 
+    } 
+ 
+    .two-layout .photo-card { 
+        min-height: 400px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       PELLI - 9 PHOTOS 
+    --------------------------------------------- */ 
+ 
+    .wedding-gallery { 
+        display: grid; 
+ 
+        grid-template-columns: 1fr; 
+ 
+        grid-template-rows: none; 
+ 
+        gap: 15px; 
+    } 
+ 
+    .wedding-gallery .photo-card:nth-child(n) { 
+        grid-column: span 1; 
+ 
+        grid-row: span 1; 
+ 
+        min-height: 350px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       MUSICAL NIGHT 
+    --------------------------------------------- */ 
+ 
+    .three-layout { 
+        display: grid; 
+ 
+        grid-template-columns: 1fr; 
+ 
+        gap: 15px; 
+    } 
+ 
+    .three-layout .photo-card, 
+    .three-layout .featured { 
+        min-height: 400px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       RECEPTION 
+    --------------------------------------------- */ 
+ 
+    .single-memory .photo-card { 
+        min-height: 400px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       TRIP 
+    --------------------------------------------- */ 
+ 
+    .trip-gallery { 
+        display: grid; 
+ 
+        grid-template-columns: 1fr 1fr; 
+ 
+        grid-auto-rows: 250px; 
+ 
+        gap: 15px; 
+    } 
+ 
+    .trip-gallery .photo-card { 
+        min-height: 250px; 
+    } 
+ 
+    .trip-gallery .trip-large { 
+        grid-column: span 2; 
+ 
+        grid-row: span 1; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       ABOUT 
+    --------------------------------------------- */ 
+ 
+    .about-love { 
+        padding: 110px 25px; 
+    } 
+ 
+    .about-text p { 
+        font-size: 19px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       FAMILY 
+    --------------------------------------------- */ 
+ 
+    .family-section { 
+        padding: 110px 25px; 
+    } 
+ 
+    .family-quote { 
+        font-size: 32px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       LETTER 
+    --------------------------------------------- */ 
+ 
+    .letter-section { 
+        padding: 80px 15px; 
+    } 
+ 
+    .letter-paper { 
+        padding: 60px 30px; 
+    } 
+ 
+    .letter-paper h2 { 
+        font-size: 60px; 
+    } 
+ 
+    .letter-body p { 
+        font-size: 19px; 
+    } 
+ 
+    .signature { 
+        font-size: 38px; 
+    } 
+ 
+ 
+    /* --------------------------------------------- 
+       IMAGE VIEWER 
+    --------------------------------------------- */ 
+ 
+    .image-viewer { 
+        padding: 20px; 
+    } 
+ 
+    .image-viewer img { 
+        max-width: 94vw; 
+ 
+        max-height: 80vh; 
+    } 
+ 
+    .viewer-prev, 
+    .viewer-next { 
+        width: 42px; 
+ 
+        height: 42px; 
+ 
+        font-size: 30px; 
+    } 
+ 
+    .viewer-prev { 
+        left: 10px; 
+    } 
+ 
+    .viewer-next { 
+        right: 10px; 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   SMALL MOBILE 
+===================================================== */ 
+ 
+@media (max-width: 450px) { 
+ 
+    .hero h1 { 
+        font-size: 65px; 
+    } 
+ 
+    .hero h2 { 
+        font-size: 30px; 
+    } 
+ 
+    .memory-heading h3 { 
+        font-size: 38px; 
+    } 
+ 
+    .wedding-gallery { 
+        grid-template-columns: 1fr; 
+    } 
+ 
+    .wedding-gallery .photo-card:nth-child(n) { 
+        grid-column: span 1; 
+ 
+        min-height: 320px; 
+    } 
+ 
+    .trip-gallery { 
+        grid-template-columns: 1fr; 
+    } 
+ 
+    .trip-gallery .trip-large { 
+        grid-column: span 1; 
+    } 
+ 
+    .trip-gallery .photo-card { 
+        min-height: 320px; 
+    } 
+ 
+    .final-content h1 { 
+        font-size: 90px; 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   ACCESSIBILITY 
+===================================================== */ 
+ 
+@media (prefers-reduced-motion: reduce) { 
+ 
+    html { 
+        scroll-behavior: auto; 
+    } 
+ 
+    *, 
+    *::before, 
+    *::after { 
+        animation-duration: 0.01ms !important; 
+ 
+        animation-iteration-count: 1 !important; 
+ 
+        transition-duration: 0.01ms !important; 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   CHILDHOOD MEMORY 
+   Full photos visible without cropping.
+   Text remains clearly separated from gallery.
+===================================================== */ 
+ 
+.childhood-block { 
+    position: relative; 
+    overflow: visible; 
+} 
+ 
+.childhood-gallery { 
+    position: relative; 
+    z-index: 1; 
+ 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    grid-auto-rows: 230px; 
+    gap: 18px; 
+ 
+    width: 100%; 
+    margin-bottom: 0; 
+} 
+ 
+.childhood-gallery .photo-card { 
+    min-height: 230px; 
+    position: relative; 
+    z-index: 1; 
+ 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+ 
+    overflow: hidden; 
+    background: #302326; 
+} 
+ 
+.childhood-gallery .photo-card img { 
+    width: 100%; 
+    height: 100%; 
+ 
+    display: block; 
+ 
+    object-fit: contain; 
+    object-position: center; 
+ 
+    background: #302326; 
+} 
+ 
+.childhood-note { 
+    position: relative; 
+    z-index: 2; 
+ 
+    display: block; 
+    clear: both; 
+ 
+    width: 100%; 
+    margin-top: 65px; 
+    padding: 40px 55px; 
+ 
+    background: rgba(255, 255, 255, 0.045); 
+    border-left: 2px solid var(--rose); 
+ 
+    color: #d8c8ca; 
+} 
+ 
+.childhood-note::before { 
+    content: "♡"; 
+    display: block; 
+ 
+    font-family: var(--script); 
+    font-size: 42px; 
+    line-height: 1; 
+    color: var(--rose); 
+ 
+    margin-bottom: 18px; 
+} 
+ 
+.childhood-note p { 
+    position: relative; 
+    z-index: 3; 
+ 
+    max-width: 850px; 
+    margin: 0 auto 22px; 
+ 
+    font-family: var(--serif); 
+    font-size: 21px; 
+    line-height: 1.8; 
+    text-align: center; 
+} 
+ 
+.childhood-note p:last-child { 
+    margin-bottom: 0; 
+} 
+ 
+ 
+/* ===================================================== 
+   CHILDHOOD - TABLET 
+===================================================== */ 
+ 
+@media (max-width: 1000px) { 
+ 
+    .childhood-gallery { 
+        grid-template-columns: repeat(3, 1fr); 
+        grid-auto-rows: 220px; 
+    } 
+ 
+    .childhood-gallery .photo-card { 
+        min-height: 220px; 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   CHILDHOOD - MOBILE 
+===================================================== */ 
+ 
+@media (max-width: 800px) { 
+ 
+    .childhood-gallery { 
+        grid-template-columns: 1fr 1fr; 
+        grid-auto-rows: 230px; 
+        gap: 15px; 
+ 
+        margin-bottom: 0; 
+    } 
+ 
+    .childhood-gallery .photo-card { 
+        min-height: 230px; 
+    } 
+ 
+    .childhood-note { 
+        margin-top: 45px; 
+        padding: 30px 22px; 
+    } 
+ 
+    .childhood-note::before { 
+        font-size: 38px; 
+        margin-bottom: 15px; 
+    } 
+ 
+    .childhood-note p { 
+        font-size: 18px; 
+        line-height: 1.75; 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   CHILDHOOD - SMALL PHONES 
+===================================================== */ 
+ 
+@media (max-width: 450px) { 
+ 
+    .childhood-gallery { 
+        grid-template-columns: 1fr; 
+        grid-auto-rows: 320px; 
+        gap: 15px; 
+    } 
+ 
+    .childhood-gallery .photo-card { 
+        min-height: 320px; 
+    } 
+ 
+    .childhood-note { 
+        margin-top: 40px; 
+        padding: 28px 18px; 
+    } 
+ 
+    .childhood-note p { 
+        font-size: 17px; 
+        line-height: 1.7; 
+    } 
+ 
 }
