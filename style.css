@@ -1,4 +1,3 @@
-
 /* ===================================================== 
    RESET 
 ===================================================== */ 
@@ -203,7 +202,6 @@ button {
     display: none; 
  
     background: none; 
- 
     border: none; 
  
     color: white; 
@@ -233,7 +231,7 @@ button {
     color: white; 
  
     background: 
-        url("birthday/birthday/Engagement/1.jpg") 
+        url("birthday/birthday/Engagement/1.jpeg") 
         center / cover no-repeat; 
  
     overflow: hidden; 
@@ -855,51 +853,25 @@ button {
     gap: 18px; 
 } 
  
- 
-/* --------------------------------------------- 
-   PHOTO 1 
-   Main hero image 
---------------------------------------------- */ 
- 
 .wedding-gallery .photo-card:nth-child(1) { 
     grid-column: span 7; 
  
     grid-row: span 2; 
 } 
  
- 
-/* --------------------------------------------- 
-   PHOTO 2 
---------------------------------------------- */ 
- 
 .wedding-gallery .photo-card:nth-child(2) { 
     grid-column: span 5; 
 } 
  
- 
-/* --------------------------------------------- 
-   PHOTO 3 
---------------------------------------------- */ 
- 
 .wedding-gallery .photo-card:nth-child(3) { 
     grid-column: span 5; 
 } 
- 
- 
-/* --------------------------------------------- 
-   PHOTOS 4, 5, 6 
---------------------------------------------- */ 
  
 .wedding-gallery .photo-card:nth-child(4), 
 .wedding-gallery .photo-card:nth-child(5), 
 .wedding-gallery .photo-card:nth-child(6) { 
     grid-column: span 4; 
 } 
- 
- 
-/* --------------------------------------------- 
-   PHOTOS 7, 8, 9 
---------------------------------------------- */ 
  
 .wedding-gallery .photo-card:nth-child(7), 
 .wedding-gallery .photo-card:nth-child(8), 
@@ -1224,7 +1196,7 @@ button {
     color: white; 
  
     background: 
-        url("birthday/birthday/trip/1.jpg") 
+        url("birthday/birthday/trip/1.jpeg") 
         center / cover no-repeat; 
 } 
  
@@ -1501,10 +1473,6 @@ button {
  
 @media (max-width: 800px) { 
  
-    /* --------------------------------------------- 
-       NAVIGATION 
-    --------------------------------------------- */ 
- 
     .navbar { 
         padding: 18px 20px; 
     } 
@@ -1546,9 +1514,7 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       HERO 
-    --------------------------------------------- */ 
+    /* HERO */ 
  
     .hero h1 { 
         font-size: 75px; 
@@ -1565,18 +1531,14 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       INTRO 
-    --------------------------------------------- */ 
+    /* INTRO */ 
  
     .intro-section { 
         padding: 110px 25px; 
     } 
  
  
-    /* --------------------------------------------- 
-       TIMELINE 
-    --------------------------------------------- */ 
+    /* TIMELINE */ 
  
     .story-section { 
         padding: 100px 20px; 
@@ -1635,9 +1597,7 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       MEMORIES 
-    --------------------------------------------- */ 
+    /* MEMORIES */ 
  
     .memories-section { 
         padding: 100px 20px; 
@@ -1662,9 +1622,7 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       ENGAGEMENT 
-    --------------------------------------------- */ 
+    /* ENGAGEMENT */ 
  
     .engagement-layout { 
         display: grid; 
@@ -1685,9 +1643,7 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       PELLI KODUKU 
-    --------------------------------------------- */ 
+    /* PELLI KODUKU */ 
  
     .two-layout { 
         grid-template-columns: 1fr; 
@@ -1700,9 +1656,7 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       PELLI - 9 PHOTOS 
-    --------------------------------------------- */ 
+    /* PELLI */ 
  
     .wedding-gallery { 
         display: grid; 
@@ -1723,9 +1677,7 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       MUSICAL NIGHT 
-    --------------------------------------------- */ 
+    /* MUSICAL NIGHT */ 
  
     .three-layout { 
         display: grid; 
@@ -1741,18 +1693,14 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       RECEPTION 
-    --------------------------------------------- */ 
+    /* RECEPTION */ 
  
     .single-memory .photo-card { 
         min-height: 400px; 
     } 
  
  
-    /* --------------------------------------------- 
-       TRIP 
-    --------------------------------------------- */ 
+    /* TRIP */ 
  
     .trip-gallery { 
         display: grid; 
@@ -1775,9 +1723,7 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       ABOUT 
-    --------------------------------------------- */ 
+    /* ABOUT */ 
  
     .about-love { 
         padding: 110px 25px; 
@@ -1788,9 +1734,7 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       FAMILY 
-    --------------------------------------------- */ 
+    /* FAMILY */ 
  
     .family-section { 
         padding: 110px 25px; 
@@ -1801,9 +1745,7 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       LETTER 
-    --------------------------------------------- */ 
+    /* LETTER */ 
  
     .letter-section { 
         padding: 80px 15px; 
@@ -1826,9 +1768,7 @@ button {
     } 
  
  
-    /* --------------------------------------------- 
-       IMAGE VIEWER 
-    --------------------------------------------- */ 
+    /* IMAGE VIEWER */ 
  
     .image-viewer { 
         padding: 20px; 
@@ -1931,7 +1871,8 @@ button {
  
  
 /* =====================================================
-   CHILDHOOD MEMORY - FINAL FIX
+   CHILDHOOD MEMORY
+   FULL IMAGE - NO CROPPING
 ===================================================== */
 
 .childhood-block {
@@ -1944,11 +1885,16 @@ button {
     z-index: 1;
 
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 18px;
 
     width: 100%;
+
     margin-bottom: 0;
+
+    align-items: start;
 }
 
 .childhood-gallery .photo-card {
@@ -1956,30 +1902,48 @@ button {
     z-index: 1;
 
     width: 100%;
-    height: 260px;
+
+    /*
+       IMPORTANT:
+       No fixed height.
+       The card follows the actual image height.
+    */
+    height: auto;
+    min-height: 0;
 
     overflow: hidden;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
 
     background: #302326;
 }
 
 .childhood-gallery .photo-card img {
     width: 100%;
-    height: 100%;
+
+    /*
+       IMPORTANT:
+       Natural image height.
+       This prevents cropping.
+    */
+    height: auto;
+
+    min-height: 0;
 
     display: block;
 
-    object-fit: contain;
-    object-position: center;
+    object-fit: initial;
+    object-position: initial;
 
     background: #302326;
+
+    transition: transform 0.7s ease;
 }
 
-/* Childhood message stays completely below photos */
+
+/* =====================================================
+   CHILDHOOD MESSAGE
+===================================================== */
 
 .childhood-note {
     position: relative;
@@ -1991,55 +1955,65 @@ button {
     width: 100%;
 
     margin-top: 65px;
+
     padding: 40px 55px;
 
     background: rgba(255, 255, 255, 0.045);
+
     border-left: 2px solid var(--rose);
 
     color: #d8c8ca;
 }
 
 
-/* TABLET */
+/* =====================================================
+   CHILDHOOD TABLET
+===================================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
     .childhood-gallery {
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
     }
 
-    .childhood-gallery .photo-card {
-        height: 240px;
-    }
-
 }
 
 
-/* MOBILE */
+/* =====================================================
+   CHILDHOOD MOBILE
+===================================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
     .childhood-gallery {
         grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
+        gap: 15px;
     }
 
     .childhood-gallery .photo-card {
-        height: 240px;
+        height: auto;
+        min-height: 0;
+    }
+
+    .childhood-gallery .photo-card img {
+        width: 100%;
+        height: auto;
     }
 
     .childhood-note {
-        margin-top: 50px;
+        margin-top: 55px;
         padding: 30px 25px;
     }
 
 }
 
 
-/* SMALL PHONES */
+/* =====================================================
+   CHILDHOOD SMALL MOBILE
+===================================================== */
 
-@media (max-width: 420px) {
+@media (max-width: 450px) {
 
     .childhood-gallery {
         grid-template-columns: 1fr;
@@ -2047,7 +2021,13 @@ button {
     }
 
     .childhood-gallery .photo-card {
-        height: 330px;
+        height: auto;
+        min-height: 0;
+    }
+
+    .childhood-gallery .photo-card img {
+        width: 100%;
+        height: auto;
     }
 
     .childhood-note {
