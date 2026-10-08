@@ -233,8 +233,12 @@ button {
     color: white;
 
     background:
-        url("birthday/birthday/Engagement/1.jpeg")
-        center / cover no-repeat;
+        linear-gradient(
+            135deg,
+            #24191b 0%,
+            #342528 50%,
+            #4a3035 100%
+        );
 
     overflow: hidden;
 }
